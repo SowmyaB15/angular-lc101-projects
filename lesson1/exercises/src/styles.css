@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    /* background-color: rgb(230, 230, 215); */
+    background-image: url("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4616179.jpg");
+    background-repeat: repeat;
+}
