@@ -16,3 +16,15 @@ img {
     display: block;
     margin: auto;
 }
+
+#text {
+    color: orange;
+    font-size: large;
+}
+/* p {
+    color: brown;
+} */
+
+.treat {
+    color: green;
+}

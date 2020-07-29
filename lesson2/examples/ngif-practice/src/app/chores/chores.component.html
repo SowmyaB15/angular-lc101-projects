@@ -1,14 +1,58 @@
-<div class="chores">
+<div class='chores' *ngIf ="finishedChores.length > chores.length; else workHard">
     <h3>Chores</h3>
     <ul>
         <li *ngFor = 'let chore of chores'>{{chore}}</li>
     </ul>
 </div>
+
+<ng-template #workHard>
+    <div class='chores'>
+        <h3>Chores</h3>
+        <ul>
+            <li *ngFor = 'let chore of chores'>{{chore}}</li>
+        </ul>
+        <p id="text">Work harder!! There are {{chores.length}} chores on your chores list.</p>
+    </div>
+ </ng-template>
+
 <hr>
-<div class="doneChores">
+<div class="doneChores" *ngIf ="chores.length === 0 || finishedChores.length >= chores.length+3; else noAllowance">
     <h3>Done Chores</h3>
     <ul>
         <li *ngFor = 'let done of finishedChores'>{{done}}</li>
     </ul>
+    <img src = {{trophyImage}}>
+</div>
+<ng-template #noAllowance>
+    <div class='doneChores'>
+        <h3>Done Chores</h3>
+        <ul>
+            <li *ngFor = 'let done of finishedChores'>{{done}}</li>
+        </ul>
+       <p>No allowance yet.</p>
+    </div>
+ </ng-template>
+ <hr>
+
+ <div class="treat" *ngIf ="chores.length === 0 && finishedChores.length >= 4; else earnTreat">
+    <h1>Ice Cream Treat!</h1>
 </div>
 <hr>
+<ng-template #earnTreat>
+    <div class='treat'>
+        <h3>To earn Ice cream treat:</h3>
+       <p>The chores list must be empty.</p>
+       <p>The Done list must have atleast 4 items.</p>
+    </div>
+ </ng-template>
+
+ <!-- <div>
+    <h3>Prep Work</h3>
+        <ul *ngIf = "prepWork.length !== 0; else noHW">
+           <li *ngFor ="let task of prepWork">{{task}}</li>
+        </ul>
+ </div>
+ 
+ <ng-template #noHW>
+    <p>This space intentionally left blank.</p>
+ </ng-template> -->
